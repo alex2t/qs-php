@@ -88,7 +88,7 @@ function embedded_signing_ceremony(){
     $config = new DocuSign\eSign\Configuration();
     $config->setHost($basePath);
     $config->addDefaultHeader("Authorization", "Bearer " . $accessToken);
-    $apiClient = new DocuSign\eSign\ApiClient($config);
+    $apiClient = new DocuSign\eSign\Client\ApiClient($config);
     $envelopeApi = new DocuSign\eSign\Api\EnvelopesApi($apiClient);
     $results = $envelopeApi->createEnvelope($accountId, $envelopeDefinition);
     $envelopeId = $results['envelope_id'];
